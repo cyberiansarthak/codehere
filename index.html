@@ -102,19 +102,11 @@
             border-radius: 15px;
             margin: 3px;
             padding-top:3px;
-          font-family: 'Courier New', Courier, monospace;
+            font-family: 'Courier New', Courier, monospace;
             color: white;
             text-align: center;
             align-items: center;
         }
-
-
-
-
-
-
-       
-
         .hidden {
             display: none;
         }
@@ -122,14 +114,17 @@
         iframe {
             border: none;
         }
-
         @media (max-width:400px) {
             .buttongrp {
-                font-weight: 500;
-                overflow: auto;
-            }
-
+            width: 250px;
+            margin: 0 auto;
+            background: none;
+           float: left;
         }
+            
+        }
+
+       
     </style>
 </head>
 
@@ -146,87 +141,77 @@
     <div id="bodycontainer">
         <div class="theme1 "><div class="font">HTML</div><textarea id="htmlPanel" class="panel"><p>sorry pyari shrashti</p></textarea></div>
       <div class="theme2 "><div class="font">CSS</div>  <textarea id="cssPanel" class="panel hidden"> p{color:green;}</textarea></div> 
-      <div class="theme3 "><div class="font">JAVASCRIPT</div > <textarea id="javascriptPanel" class="panel hidden">alert("sorry pyari shrashti"); </textarea></div> 
+      <div class="theme3 "><div class="font">JAVASCRIPT</div > <textarea id="javascriptPanel" class="panel hidden"> </textarea></div> 
       <div class="theme4 "><div class="font">OUTPUT</div> <iframe id="outputPanel" class="panel"></iframe></div>  
     </div>
 
-
+    <script type="text/javascript">
+        var htmlPanel = CodeMirror.fromTextArea(document.getElementById("htmlPanel"), {
+            mode: "xml",
+            theme: "dracula",
+            lineNumbers: true,
+            autoCloseTags: true,
+            autoCloseBrackets: true
+        });
+        var cssPanel = CodeMirror.fromTextArea(document.getElementById("cssPanel"), {
+            mode: "css",
+            theme: "dracula",
+            lineNumbers: true,
+            autoCloseTags: true,
+            autoCloseBrackets: true
+        });
+        var javascriptPanel = CodeMirror.fromTextArea(document.getElementById("javascriptPanel"), {
+            mode: "javascript",
+            theme: "dracula",
+            lineNumbers: true,
+            autoCloseTags: true,
+            autoCloseBrackets: true
+        });
+    
+    
+        function outputPanel() {
+            $("iframe").contents().find("html").html("<html><head><style type='text/css'>" + cssPanel.getValue() +
+                "</style></head><body>" + htmlPanel.getValue() + "</body></html>");
+            document.getElementById("outputPanel").contentWindow.eval(javascriptPanel.getValue());
+        }
+    
+    
+        $("#logo").click(function () {
+            $(".buttongrp").fadeOut(400);
+        });
+        $("body").click(function () {
+            $(".buttongrp").fadeIn(400);
+        });
+        $(".togglebutton").hover(function () {
+            $(this).addClass("highlightedbut")
+        }, function () {
+            $(this).removeClass("highlightedbut")
+        });
+        $(".togglebutton").click(function () {
+            $(this).toggleClass("active");
+            $(this).removeClass("highlightedbut");
+            var panelId = $(this).attr("id") + "Panel";
+            $("#" + panelId).toggleClass("hidden");
+    
+    
+        });
+        outputPanel();
+    
+        $("textarea").on('change keyup paste', function () {
+    
+    
+            outputPanel();
+    
+    
+    
+        });
+    
+    
+    </script>
 
 
 </body>
-<script type="text/javascript">
-    var htmlPanel = CodeMirror.fromTextArea(document.getElementById("htmlPanel"), {
-        mode: "xml",
-        theme: "dracula",
-        lineNumbers: true,
-        autoCloseTags: true,
-        autoCloseBrackets: true
-    });
-    var cssPanel = CodeMirror.fromTextArea(document.getElementById("cssPanel"), {
-        mode: "css",
-        theme: "dracula",
-        lineNumbers: true,
-        autoCloseTags: true,
-        autoCloseBrackets: true
-    });
-    var javascriptPanel = CodeMirror.fromTextArea(document.getElementById("javascriptPanel"), {
-        mode: "javascript",
-        theme: "dracula",
-        lineNumbers: true,
-        autoCloseTags: true,
-        autoCloseBrackets: true
-    });
 
-
-    function outputPanel() {
-        $("iframe").contents().find("html").html("<html><head><style type='text/css'>" + cssPanel.getValue() +
-            "</style></head><body>" + htmlPanel.getValue() + "</body></html>");
-        document.getElementById("outputPanel").contentWindow.eval(javascriptPanel.getValue());
-    }
-
-
-    $("#logo").click(function () {
-        $(".buttongrp").fadeOut(400);
-    });
-    $("body").click(function () {
-        $(".buttongrp").fadeIn(400);
-    });
-    $(".togglebutton").hover(function () {
-        $(this).addClass("highlightedbut")
-    }, function () {
-        $(this).removeClass("highlightedbut")
-    });
-    $(".togglebutton").click(function () {
-        $(this).toggleClass("active");
-        $(this).removeClass("highlightedbut");
-        var panelId = $(this).attr("id") + "Panel";
-        $("#" + panelId).toggleClass("hidden");
-
-
-    });
-    outputPanel();
-
-    $("textarea").on('change keyup paste', function () {
-
-
-        outputPanel();
-
-
-
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
 
 
 </html>
