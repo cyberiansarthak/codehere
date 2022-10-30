@@ -93,19 +93,37 @@
             color: black;
             border-color: white;
         }
+        .theme1{
+            margin: 5px;
+            padding: 3px;
+            border: 3px solid rgba(17, 17, 17, 0.799);
+            border-radius: 3px;
+            background-color: gray;
+        }
+        .theme2{
+            
+            margin: 5px;
+            padding: 3px;
+            border: 3px solid rgba(17, 17, 17, 0.799);
+            border-radius: 3px;
+        }
         
         .font{
            
-            width: 120px;
-            height: 30px;
-            background-color: rgb(37, 37, 43);
-            border-radius: 15px;
+            width: 100px;
+            height: 20px;
+            background-color: rgba(7, 7, 54, 0.641);
+            border-radius: 5px;
+            border: 1px solid;
             margin: 3px;
-            padding-top:3px;
-            font-family: 'Courier New', Courier, monospace;
+             text-align: center;
+            font-family: sans-serif;
             color: white;
-            text-align: center;
-            align-items: center;
+            font-size: 80%;
+            
+            font-weight: bold;
+           padding:3px;
+          
         }
         .hidden {
             display: none;
@@ -130,7 +148,7 @@
 
 <body>
     <div id="header">
-        <div id="logo">Code Here</div>
+        <div id="logo">Codebook</div>
         <div class="buttongrp">
             <div class="togglebutton " id="html">Html</div>
             <div class="togglebutton" id="css">Css</div>
@@ -139,10 +157,23 @@
         </div>
     </div>
     <div id="bodycontainer">
-        <div class="theme1 "><div class="font">HTML</div><textarea id="htmlPanel" class="panel"><p>sorry pyari shrashti</p></textarea></div>
-      <div class="theme2 "><div class="font">CSS</div>  <textarea id="cssPanel" class="panel hidden"> p{color:green;}</textarea></div> 
-      <div class="theme3 "><div class="font">JAVASCRIPT</div > <textarea id="javascriptPanel" class="panel hidden"> </textarea></div> 
-      <div class="theme4 "><div class="font">OUTPUT</div> <iframe id="outputPanel" class="panel"></iframe></div>  
+        <div class="theme1 "><div class="font">HTML</div><textarea id="htmlPanel" class="panel"><p id ="text">welcome to code book</p>
+            <button id ="togglebutton"> click me!</button></textarea></div>
+      <div class="theme1 "><div class="font">CSS</div>  <textarea id="cssPanel" class="panel hidden"> p{color:green;}
+        #togglebutton{
+          border-radius:5px;
+          border: 2px solid black;
+          background-color: white;
+          
+        }
+        #togglebutton:hover{
+           background-color: black;
+          color: white;
+        }</textarea></div> 
+      <div class="theme1 "><div class="font">JAVASCRIPT</div > <textarea id="javascriptPanel" class="panel hidden">  document.getElementById("togglebutton").onclick = function(){
+        document.getElementById("text").innerHTML="Here you see your changes!";
+    }</textarea></div> 
+      <div class="theme2 "><div class="font">OUTPUT</div> <iframe id="outputPanel" class="panel" height="100%"></iframe></div>  
     </div>
 
     <script type="text/javascript">
@@ -167,7 +198,7 @@
             autoCloseTags: true,
             autoCloseBrackets: true
         });
-    
+       
     
         function outputPanel() {
             $("iframe").contents().find("html").html("<html><head><style type='text/css'>" + cssPanel.getValue() +
