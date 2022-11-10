@@ -24,6 +24,14 @@
             font-family: sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #131417;
+        }
+        .starter{
+            position: absolute;
+            top: 40px;
+            background-color: #1e1f26;
+            width: 200px;
+            height: 1050px;
         }
 
         #logo {
@@ -36,7 +44,7 @@
 
         #header {
             width: 100%;
-            background-color: black;
+            background-color:#1e1f26;
             padding: 5px;
             height: 35px;
 
@@ -70,13 +78,25 @@
             border-right: 2px solid white;
         }
 
+        #bodycontainer {
+            position: absolute;
+            top: 50px;
+            left: 250px;
+            border-radius: 20px;
+            width: 900px;
+            height: 400px;
+            background-color: #24252a;
+            background-image: linear-gradient(45deg,#24252a 0%, #454852 100%);
+            position: relative;
+        }
 
-       
+
 
         #logo:hover {
             color: yellowgreen;
         }
-        .togglebutton:hover{
+
+        .togglebutton:hover {
             background-color: white;
             color: black;
             border-color: white;
@@ -88,65 +108,109 @@
             font-weight: 500;
             color: black;
         }
-        .active{
+
+        .active {
             background-color: white;
             color: black;
             border-color: white;
         }
-        .theme1{
-            margin: 5px;
-            padding: 3px;
-            border: 3px solid rgba(17, 17, 17, 0.799);
-            border-radius: 3px;
-            background-color: gray;
-        }
-        .theme2{
-            
-            margin: 5px;
-            padding: 3px;
-            border: 3px solid rgba(17, 17, 17, 0.799);
-            border-radius: 3px;
-        }
-        
-        .font{
-           
-            width: 100px;
-            height: 20px;
-            background-color: rgba(7, 7, 54, 0.641);
-            border-radius: 5px;
-            border: 1px solid;
-            margin: 3px;
-             text-align: center;
-            font-family: sans-serif;
-            color: white;
-            font-size: 80%;
-            
-            font-weight: bold;
-           padding:3px;
+
+        .theme1 {
           
+            font-weight: 700;
+           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+           background: #282a36;
+           width: 300px;
+           height: 180px;
+           border-radius: 10px;
+        
         }
+        .themehtml{
+            position: relative;
+            top: 50px;
+            left: 30px;
+        }
+        .themecss{
+            position: absolute;
+            top: 200px;
+            left: 300px;
+        }
+        .themejavascript{
+            position: absolute;
+            top: 40px;
+            left: 580px;
+        }
+
+        .theme2 {
+            position: absolute;
+             top: 0px;
+            left: 950px;
+            width: 300px;
+            text-align: center;
+            padding: 10px;
+             margin-right: 100px;
+            background-color: white;
+            padding: 3px;
+          
+            border-radius: 5px;
+        }
+
+        .img {
+            padding-left: 5px;
+            padding-right: 2px;
+            width: 13px;
+
+           
+        }
+
         .hidden {
             display: none;
         }
 
         iframe {
+            background-color: white;
             border: none;
+            width: 300px;
+            height: 90vh;
         }
-        @media (max-width:400px) {
-            .buttongrp {
-            width: 250px;
-            margin: 0 auto;
-            background: none;
-           float: left;
-        }
+        .footer{
             
+            position: absolute;
+            top:800px ;
+            left: -50px;
+            width: 1310px;
+            height: 200px;
+            background-color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .codebook{
+            padding-left: 30px;
+            color: white;
+            font-size: 30px;
+        }
+        .footerul{
+            padding-left: 45px;
+            
+            color: grey;
+        }
+        .footerul:hover{
+            color: blue;
         }
 
-       
+        @media (max-width:400px) {
+            .buttongrp {
+                width: 250px;
+                margin: 0 auto;
+                background: none;
+                float: left;
+            }
+
+        }
     </style>
 </head>
 
 <body>
+    <div class="starter"></div>
     <div id="header">
         <div id="logo">Codebook</div>
         <div class="buttongrp">
@@ -157,9 +221,14 @@
         </div>
     </div>
     <div id="bodycontainer">
-        <div class="theme1 "><div class="font">HTML</div><textarea id="htmlPanel" class="panel"><p id ="text">welcome to code book</p>
-            <button id ="togglebutton"> click me!</button></textarea></div>
-      <div class="theme1 "><div class="font">CSS</div>  <textarea id="cssPanel" class="panel hidden"> p{color:green;}
+        <div class="theme1 themehtml ">
+            <div ><img src="black-settings-button.png" alt="img" class="img">Html</div><textarea id="htmlPanel"
+                class="panel"><p id ="text">welcome to code book</p> <button id ="togglebutton"> click me!</button></textarea>
+        </div>
+        <div class="theme1  themecss ">
+            <div class="font"><img src="black-settings-button.png" alt="img" class="img">CSS</div>
+            <textarea id="cssPanel" class="panel hidden">
+        p{color:green;}
         #togglebutton{
           border-radius:5px;
           border: 2px solid black;
@@ -169,11 +238,18 @@
         #togglebutton:hover{
            background-color: black;
           color: white;
-        }</textarea></div> 
-      <div class="theme1 "><div class="font">JAVASCRIPT</div > <textarea id="javascriptPanel" class="panel hidden">  document.getElementById("togglebutton").onclick = function(){
+        }
+       </textarea>
+        </div>
+        <div class="theme1 themejavascript ">
+            <div class="font"><img src="black-settings-button.png" alt="img" class="img">JAVASCRIPT</div> <textarea id="javascriptPanel" class="panel hidden">  document.getElementById("togglebutton").onclick = function(){
         document.getElementById("text").innerHTML="Here you see your changes!";
-    }</textarea></div> 
-      <div class="theme2 "><div class="font">OUTPUT</div> <iframe id="outputPanel" class="panel" height="100%"></iframe></div>  
+    }</textarea>
+        </div>
+        <div class="theme2 ">
+            <div class="font">OUTPUT</div> <iframe id="outputPanel" class="panel"></iframe>
+        </div>
+        <div class="footer"><p class="codebook">Code book</p><ul class="footerul"><li>Html</li><li>Css</li><li>javascript</li></ul></div>
     </div>
 
     <script type="text/javascript">
@@ -184,6 +260,7 @@
             autoCloseTags: true,
             autoCloseBrackets: true
         });
+        htmlPanel.setSize(250,150);
         var cssPanel = CodeMirror.fromTextArea(document.getElementById("cssPanel"), {
             mode: "css",
             theme: "dracula",
@@ -191,6 +268,8 @@
             autoCloseTags: true,
             autoCloseBrackets: true
         });
+        cssPanel.setSize(250,150);
+
         var javascriptPanel = CodeMirror.fromTextArea(document.getElementById("javascriptPanel"), {
             mode: "javascript",
             theme: "dracula",
@@ -198,15 +277,16 @@
             autoCloseTags: true,
             autoCloseBrackets: true
         });
-       
-    
+        javascriptPanel.setSize(250,150);
+
+
         function outputPanel() {
             $("iframe").contents().find("html").html("<html><head><style type='text/css'>" + cssPanel.getValue() +
                 "</style></head><body>" + htmlPanel.getValue() + "</body></html>");
             document.getElementById("outputPanel").contentWindow.eval(javascriptPanel.getValue());
         }
-    
-    
+
+
         $("#logo").click(function () {
             $(".buttongrp").fadeOut(400);
         });
@@ -223,21 +303,22 @@
             $(this).removeClass("highlightedbut");
             var panelId = $(this).attr("id") + "Panel";
             $("#" + panelId).toggleClass("hidden");
-    
-    
+
+
         });
-        outputPanel();
-    
+
+
+
         $("textarea").on('change keyup paste', function () {
-    
-    
+
+
             outputPanel();
-    
-    
-    
+
+
+
         });
-    
-    
+
+
     </script>
 
 
