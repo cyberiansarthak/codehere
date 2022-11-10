@@ -43,6 +43,7 @@
         }
 
         #header {
+           
             width: 100%;
             background-color:#1e1f26;
             padding: 5px;
@@ -178,7 +179,7 @@
             position: absolute;
             top:800px ;
             left: -50px;
-            width: 1310px;
+            width: 1330px;
             height: 200px;
             background-color: black;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -193,8 +194,35 @@
             
             color: grey;
         }
-        .footerul:hover{
-            color: blue;
+        li:hover{
+            color: white;
+        }
+        .developer{
+            display: flex;
+            color: grey;
+            position: absolute;
+            top: 50px;
+            left: 450px;
+
+        }
+        .developer li{
+            width: 110px;
+            text-decoration: none;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+        }
+        .team{
+            color: white;
+          text-align: center;
+          margin-top: -60px;
+          margin-left: 70px;
+          font-family: 'Times New Roman', Times, serif;
+            
+        }
+        .fixed{
+            
+           
         }
 
         @media (max-width:400px) {
@@ -220,6 +248,7 @@
             <div class="togglebutton  active" id="output">Output</div>
         </div>
     </div>
+    <div class="fixed">
     <div id="bodycontainer">
         <div class="theme1 themehtml ">
             <div ><img src="black-settings-button.png" alt="img" class="img">Html</div><textarea id="htmlPanel"
@@ -249,9 +278,11 @@
         <div class="theme2 ">
             <div class="font">OUTPUT</div> <iframe id="outputPanel" class="panel"></iframe>
         </div>
-        <div class="footer"><p class="codebook">Code book</p><ul class="footerul"><li>Html</li><li>Css</li><li>javascript</li></ul></div>
+        <div class="footer"><p class="codebook">Code book</p><p  class="team">Our team</p><ul class="footerul"><li>Html</li><li>Css</li><li>javascript</li></ul>
+        <ul class="developer">
+            <li>Anuradha meena  Html</li><li>Sarthak khare  Css</li><li> Dev Jadiya   javascript</li></ul></div>
     </div>
-
+</div>
     <script type="text/javascript">
         var htmlPanel = CodeMirror.fromTextArea(document.getElementById("htmlPanel"), {
             mode: "xml",
